@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>All Users</title>
+    </head>
+    <body>
+        <h1>All users in database</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+            <tr th:each="u: ${users}">
+                <td th:text="${u.name}"></td>
+                <td th:text="${u.age}"></td>
+                <td th:text="${u.email}"></td>
+            </tr>
+        </table>
+
+        <form action="/users" method="post">
+            Name: <input type="text" name="name">
+            Age: <input type="number" step="any" name="age">
+            Email: <input type="text" name="email">
+            <button type="submit">Add user</button>
+        </form>
+    </body>
+</html>
